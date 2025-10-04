@@ -1,0 +1,173 @@
+/* ----- Job Card ----- */
+.job-card {
+  background: #1e1e2f; /* dark mode base */
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px;
+  width: 300px;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.1),
+              0 0 30px rgba(0, 255, 255, 0.05);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Neon gradient background effect */
+.job-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #0ff, #00f, #0ff, #0ff);
+  opacity: 0.05;
+  transform: rotate(45deg);
+  transition: opacity 0.5s ease, transform 1.5s ease;
+  z-index: 0;
+  pointer-events: none; /* allows clicks through */
+}
+
+.job-card:hover::before {
+  opacity: 0.25;
+}
+
+.job-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4),
+              0 0 40px rgba(0, 255, 255, 0.2);
+  border: 2px solid rgba(0, 255, 255, 0.5);
+}
+
+.job-card h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff;
+}
+
+.job-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* ----- Job Description ----- */
+.job-description {
+  margin-top: 15px;
+  background: rgba(0, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1; /* ensure clickable */
+}
+
+/* ----- Buttons ----- */
+.job-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.view-more-btn,
+.apply-btn {
+  background: linear-gradient(135deg, #0ff, #00f);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 2px #0ff;
+}
+
+.view-more-btn:hover,
+.apply-btn:hover {
+  background: linear-gradient(135deg, #00f, #0ff);
+  box-shadow: 0 0 15px #0ff, 0 0 30px #00f;
+  transform: translateY(-3px);
+}
+
+/* ----- Apply Form ----- */
+.apply-form {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1; /* clickable above pseudo-element */
+  background: rgba(0, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
+  border-left: 4px solid #0ff;
+  box-shadow: 0 4px 12px rgba(0,255,255,0.1);
+  transition: all 0.3s ease;
+}
+
+.apply-form label {
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.apply-form input,
+.apply-form select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #0ff;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.apply-form input:focus,
+.apply-form select:focus {
+  border: 1px solid #00f;
+  box-shadow: 0 0 10px #0ff;
+}
+
+/* ----- Submit Button ----- */
+.submit-btn {
+  background: linear-gradient(135deg, #0ff, #00f);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 3px #0ff;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #00f, #0ff);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #00f;
+  transform: translateY(-3px);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 480px) {
+  .job-card {
+    width: 90%;
+    margin: 15px auto;
+  }
+
+  .job-card-buttons {
+    flex-direction: column;
+  }
+
+  .view-more-btn,
+  .apply-btn,
+  .submit-btn {
+    width: 100%;
+  }
+}

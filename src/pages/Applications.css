@@ -1,0 +1,134 @@
+.applications-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.applications-container h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.applications-container h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #2563eb;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.applications-container h2:hover::after {
+  width: 120px;
+}
+
+/* Grid for application cards */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 10px;
+}
+
+/* Individual application card */
+.application-card {
+  background: linear-gradient(135deg, #ffffff, #f3f4f6);
+  border-radius: 16px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.application-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #2563eb, #22c55e, #facc15, #ec4899);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  transform: rotate(25deg);
+  z-index: 0;
+}
+
+.application-card:hover::before {
+  opacity: 0.1;
+}
+
+.application-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.application-card h3 {
+  margin-bottom: 10px;
+  color: #111;
+  position: relative;
+  z-index: 1;
+}
+
+.application-card .company {
+  color: #6b7280;
+  margin-bottom: 15px;
+  z-index: 1;
+}
+
+/* Status styling */
+.status {
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.status.applied {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.shortlisted {
+  background-color: #d1e7dd;
+  color: #0f5132;
+}
+
+.status.rejected {
+  background-color: #f8d7da;
+  color: #842029;
+}
+
+/* Add small animation for status */
+.status.applied:hover {
+  background-color: #ffe69c;
+}
+
+.status.shortlisted:hover {
+  background-color: #bde7cd;
+}
+
+.status.rejected:hover {
+  background-color: #f5a6ab;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
